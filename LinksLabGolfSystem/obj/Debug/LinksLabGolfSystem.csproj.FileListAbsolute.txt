@@ -1,0 +1,15 @@
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\bin\Debug\LinksLabGolfSystem.exe.config
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\bin\Debug\LinksLabGolfSystem.exe
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\bin\Debug\LinksLabGolfSystem.pdb
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.csproj.AssemblyReference.cache
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\MainWindow.g.cs
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\App.g.cs
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem_MarkupCompile.cache
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem_MarkupCompile.lref
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\MainWindow.baml
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.g.resources
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.Properties.Resources.resources
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.csproj.GenerateResource.cache
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.csproj.CoreCompileInputs.cache
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.exe
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.pdb

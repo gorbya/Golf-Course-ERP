@@ -69,6 +69,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CourseStaff\Admin.cs" />
+    <Compile Include="Models\Concessions\Concession.cs" />
+    <Compile Include="Models\Concessions\ConcessionSale.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CourseStaff\Employee.cs" />
+    <Compile Include="Models\CourseReservations\CourseReservation.cs" />
+    <Compile Include="Models\Equipment.cs" />
+    <Compile Include="Models\EquipmentReservations\EquipmentMaintenance.cs" />
+    <Compile Include="Models\EquipmentReservations\EquipmentRental.cs" />
+    <Compile Include="Models\EquipmentReservations\EquipmentReservation.cs" />
+    <Compile Include="Models\CourseReservations\CourseMaintenance.cs" />
+    <Compile Include="Models\CourseReservations\TeeTime.cs" />
+    <Compile Include="Models\Sale.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,5 +107,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

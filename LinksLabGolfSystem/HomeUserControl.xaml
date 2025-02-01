@@ -14,6 +14,6 @@
             <Button x:Name="btnCustomerMgr" Content="Customer Management" Background="Transparent" Margin="5" />
 
         </StackPanel>
-
+        x
     </Grid>
 </UserControl>

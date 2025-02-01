@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\
 LinksLabGolfSystem
 none
 false
 DEBUG;TRACE
-C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\App.xaml
-11151548125
+C:\Projects\SENG499\Golf-Course-ERP\LinksLabGolfSystem\App.xaml
+41471121698
 
-18619511096
-13152784993
-MainWindow.xaml;
+21-885263013
+20747522976
+ConcessionSaleUserControl.xaml;HomeUserControl.xaml;LoginUserControl.xaml;MainWindow.xaml;
 
-True
+False
 

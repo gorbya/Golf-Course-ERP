@@ -11,9 +11,16 @@
         <StackPanel Grid.Column="0" Background="LightBlue">
 
             <Button x:Name="btnOverview" Content="Overview" Background="Transparent" Margin="5" />
-            <Button x:Name="btnCustomerMgr" Content="Customer Management" Background="Transparent" Margin="5" />
+            <Button x:Name="btnCustomerMgr" Content="Customer Management" Background="Transparent" Margin="5" Click="BtnCustomerMgr_OnClick"  />
 
         </StackPanel>
-        x
+
+        <Grid Grid.Column="1">
+
+            <DataGrid x:Name="grdCustomers" ItemsSource="{Binding Customers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+            </DataGrid>
+
+        </Grid>
     </Grid>
 </UserControl>

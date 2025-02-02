@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinksLabGolfSystem.Models
-{
+namespace LinksLabGolfSystem.Models {
     public class Equipment {
         public int Uid { get; set; }
         public string Description { get; set; }

@@ -68,6 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SQL\DataConstants\SQL.cs" />
+    <Compile Include="SQL\SQLDataService.cs" />
     <Page Include="ConcessionSaleUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

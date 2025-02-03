@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 namespace LinksLabGolfSystem.Models {
     public class Customer : INotifyPropertyChanged {
         public int Uid { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Email { get; set; }
         public bool IsMember { get; set; }
-        public DateTime RenewalDate { get; set; }
+        public string RenewalDate { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

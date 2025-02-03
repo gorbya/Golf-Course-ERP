@@ -64,3 +64,5 @@ C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\Lin
 C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.csproj.CopyComplete
 C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.exe
 C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.pdb
+C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\CustomerManagerUserControl.baml
+C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\CustomerManagerUserControl.g.cs

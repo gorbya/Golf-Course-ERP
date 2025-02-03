@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LinksLabGolfSystem"
         mc:Ignorable="d"
-        Title="LinksLab Golf System" Height="450" Width="800">
+        Title="LinksLab Golf System" Height="950" Width="1800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

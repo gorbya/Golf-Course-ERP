@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="LinksLabGolfSystem.CustomerManagerUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" FontSize="14" FontWeight="Bold" Text="Customer Management" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10"/>
+        <Grid Grid.Row="1">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="grdCustomers" CanUserAddRows="False" CanUserDeleteRows="False"
+                  AutoGenerateColumns="False" ItemsSource="{Binding Customers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Email Address" Binding="{Binding Email}"/>
+                <DataGridCheckBoxColumn Header="Is Member" Binding="{Binding IsMember}"/>
+                <DataGridTextColumn Header="Membership Renewal Date" Binding="{Binding RenewalDate}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <GridSplitter Grid.Column="1"
+                      Width="5"
+                      Background="Gray"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                      ResizeBehavior="PreviousAndNext"
+                      ShowsPreview="True" />
+
+        <TabControl Grid.Column="2"></TabControl>
+    </Grid>
+    </Grid>
+</UserControl>

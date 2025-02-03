@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\App.xaml
-41471121698
+52082674121
 
-24602198134
+25-1376021829
 20883834299
-ConcessionSaleUserControl.xaml;HomeUserControl.xaml;LoginUserControl.xaml;MainWindow.xaml;
+ConcessionSaleUserControl.xaml;CustomerManagerUserControl.xaml;HomeUserControl.xaml;LoginUserControl.xaml;MainWindow.xaml;
 
-False
+True
 

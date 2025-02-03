@@ -14,13 +14,6 @@
             <Button x:Name="btnCustomerMgr" Content="Customer Management" Background="Transparent" Margin="5" Click="BtnCustomerMgr_OnClick"  />
 
         </StackPanel>
-
-        <Grid Grid.Column="1">
-
-            <DataGrid x:Name="grdCustomers" ItemsSource="{Binding Customers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-
-            </DataGrid>
-
-        </Grid>
+        <ContentControl x:Name="MainContent" Grid.Column="1"/>
     </Grid>
 </UserControl>

@@ -2,20 +2,18 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace LinksLabGolfSystem.SQL
+namespace SqlHelper
 {
     public class SQLDataService
     {
-        private string _connectionString = "Server=localhost\\SQLEXPRESS;Database=LinksLabGolfSystem;Trusted_Connection=True;";
+        private string _connectionString = "";
 
-        public SQLDataService()
-        {
-            _connectionString = "Server=localhost\\SQLEXPRESS;Database=LinksLabGolfSystem;Trusted_Connection=True;";
+        public SQLDataService(string connection) {
+            _connectionString = connection;
         }
 
         // Method to execute a SELECT query and return results
-        public DataTable ExecuteSelectQuery(string query)
-        {
+        public DataTable ExecuteSelectQuery(string query) {
             DataTable resultTable = new DataTable();
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -28,8 +26,7 @@ namespace LinksLabGolfSystem.SQL
         }
 
         // Method to execute an INSERT, UPDATE, or DELETE query
-        public int ExecuteNonQuery(string query)
-        {
+        public int ExecuteNonQuery(string query) {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -39,8 +36,7 @@ namespace LinksLabGolfSystem.SQL
         }
 
         // Method to execute a query with parameters (e.g., for INSERT, UPDATE)
-        public int ExecuteNonQueryWithParams(string query, List<SqlParameter> parameters)
-        {
+        public int ExecuteNonQueryWithParams(string query, List<SqlParameter> parameters) {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -51,8 +47,7 @@ namespace LinksLabGolfSystem.SQL
         }
 
         // Method to get a single value (e.g., from a SELECT query with aggregate functions)
-        public object ExecuteScalarQuery(string query)
-        {
+        public object ExecuteScalarQuery(string query) {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);

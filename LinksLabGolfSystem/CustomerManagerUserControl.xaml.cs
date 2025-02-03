@@ -1,5 +1,5 @@
 ﻿using LinksLabGolfSystem.Models;
-using LinksLabGolfSystem.SQL;
+using LinksLabGolfSystem;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SqlHelper;
 
 namespace LinksLabGolfSystem {
     /// <summary>
@@ -44,7 +45,7 @@ namespace LinksLabGolfSystem {
             InitializeComponent();
             DataContext = this;
 
-            SQLDataService sdq = new SQLDataService();
+            SQLDataService sdq = new SQLDataService(DataConstants.SQL.ConnectionString);
 
             DataTable dt = sdq.ExecuteSelectQuery("Select * from Customers");
             ObservableCollection<Customer> customerList = new ObservableCollection<Customer>();

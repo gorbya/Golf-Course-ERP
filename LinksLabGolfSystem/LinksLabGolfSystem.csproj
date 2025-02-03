@@ -71,8 +71,7 @@
     <Compile Include="CustomerManagerUserControl.xaml.cs">
       <DependentUpon>CustomerManagerUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SQL\DataConstants\SQL.cs" />
-    <Compile Include="SQL\SQLDataService.cs" />
+    <Compile Include="DataConstants\SQL.cs" />
     <Page Include="ConcessionSaleUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +149,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SqlHelper\SqlHelper.csproj">
+      <Project>{2b3b1f0e-e80d-404c-8af2-c4fa3df71ccf}</Project>
+      <Name>SqlHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

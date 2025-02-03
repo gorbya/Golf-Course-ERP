@@ -102,3 +102,5 @@ C:\Projects\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.cspr
 C:\Projects\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.csproj.CopyComplete
 C:\Projects\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.exe
 C:\Projects\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem.pdb
+C:\Projects\Golf-Course-ERP\LinksLabGolfSystem\bin\Debug\SqlHelper.dll
+C:\Projects\Golf-Course-ERP\LinksLabGolfSystem\bin\Debug\SqlHelper.pdb

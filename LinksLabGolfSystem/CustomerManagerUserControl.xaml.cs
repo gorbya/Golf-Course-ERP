@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -26,6 +27,21 @@ namespace LinksLabGolfSystem {
     /// </summary>
     public partial class CustomerManagerUserControl : UserControl, INotifyPropertyChanged {
         private ObservableCollection<Customer> _Customers;
+        private Customer _SelectedCustomer;
+
+        public Customer SelectedCustomer {
+            get {
+                if (_SelectedCustomer == null) {
+                    _SelectedCustomer = new Customer();
+                }
+                return _SelectedCustomer;
+            }
+            set
+            {
+                _SelectedCustomer = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ObservableCollection<Customer> Customers {
             get {
@@ -42,8 +58,18 @@ namespace LinksLabGolfSystem {
         }
 
         public CustomerManagerUserControl() {
-            InitializeComponent();
             DataContext = this;
+            InitializeComponent();
+            
+
+            GetCustomers();
+
+            grdCustomers.ItemsSource = Customers;
+        }
+
+        public void GetCustomers() {
+
+            Customers.Clear();
 
             SQLDataService sdq = new SQLDataService(DataConstants.SQL.ConnectionString);
 
@@ -61,9 +87,7 @@ namespace LinksLabGolfSystem {
                 customerList.Add(customer);
             }
 
-            Customers = customerList; 
-
-            grdCustomers.ItemsSource = Customers;
+            Customers = customerList;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -77,6 +101,51 @@ namespace LinksLabGolfSystem {
             field = value;
             OnPropertyChanged(propertyName);
             return true;
+        }
+
+        private void BtnSaveCustomer_OnClick(object sender, RoutedEventArgs e) {
+            if (SelectedCustomer.Uid > 0) {
+
+                //SqlParameter uidParameter = new SqlParameter();
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                parameters.Add( new SqlParameter("@FirstName", SelectedCustomer.FirstName));
+                parameters.Add(new SqlParameter("@LastName", SelectedCustomer.LastName));
+                parameters.Add(new SqlParameter("@Email", SelectedCustomer.Email));
+                parameters.Add(new SqlParameter("@IsMember", SelectedCustomer.IsMember));
+                parameters.Add(new SqlParameter("@RenewalDate", SelectedCustomer.RenewalDate ?? (object)DBNull.Value));
+                parameters.Add(new SqlParameter("@Uid", SelectedCustomer.Uid));
+
+                string query = "UPDATE Customers SET FirstName = @FirstName, LastName = @LastName, Email = @Email, IsMember = @IsMember, RenewalDate = @RenewalDate WHERE Uid = @Uid";
+
+                SQLDataService sds = new SQLDataService(DataConstants.SQL.ConnectionString);
+
+                sds.ExecuteNonQueryWithParams(query, parameters);
+            }
+
+            else {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                parameters.Add(new SqlParameter("@FirstName", SelectedCustomer.FirstName));
+                parameters.Add(new SqlParameter("@LastName", SelectedCustomer.LastName));
+                parameters.Add(new SqlParameter("@Email", SelectedCustomer.Email));
+                parameters.Add(new SqlParameter("@IsMember", SelectedCustomer.IsMember));
+                parameters.Add(new SqlParameter("@RenewalDate", SelectedCustomer.RenewalDate ?? (object)DBNull.Value));
+
+                string query = "INSERT INTO Customers (FirstName, LastName, Email, IsMember, RenewalDate) VALUES (@FirstName, @LastName, @Email, @IsMember, @RenewalDate)";
+
+                SQLDataService sds = new SQLDataService(DataConstants.SQL.ConnectionString);
+
+                sds.ExecuteNonQueryWithParams(query, parameters);
+            }
+
+            GetCustomers();
+
+        }
+
+        private void BtnCreateNewCustomer_OnClick(object sender, RoutedEventArgs e) {
+            SelectedCustomer = new Customer();
+            SelectedCustomer.Uid = -1;
         }
     }
 }

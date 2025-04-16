@@ -16,6 +16,10 @@ namespace LinksLabGolfSystem.Models {
         public string RenewalDate { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string FullName {
+            get { return $"{FirstName} {LastName}"; }
+        }
+
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

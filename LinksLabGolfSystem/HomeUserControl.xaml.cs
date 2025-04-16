@@ -33,6 +33,7 @@ namespace LinksLabGolfSystem {
             MainContent.Content = new CustomerManagerUserControl();
         }
 
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
@@ -44,6 +45,22 @@ namespace LinksLabGolfSystem {
             field = value;
             OnPropertyChanged(propertyName);
             return true;
+        }
+
+        private void BtnOverview_OnClick(object sender, RoutedEventArgs e) {
+            MainContent.Content = new Scheduler();
+        }
+
+        private void BtnEquipmentMgr_OnClick(object sender, RoutedEventArgs e) {
+            MainContent.Content = new EquipmentManager();
+        }
+
+        private void BtnEmployeeMgr_OnClick(object sender, RoutedEventArgs e) {
+            MainContent.Content = new EmployeeManager();
+        }
+
+        private void BtnEventMgr_OnClick(object sender, RoutedEventArgs e) {
+            MainContent.Content = new CourseEventManager();
         }
     }
 }

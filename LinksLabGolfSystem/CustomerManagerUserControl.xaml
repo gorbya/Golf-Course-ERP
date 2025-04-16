@@ -19,6 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <DataGrid x:Name="grdCustomers" CanUserAddRows="False" CanUserDeleteRows="False"
+                  SelectedItem="{Binding SelectedCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
                   AutoGenerateColumns="False" ItemsSource="{Binding Customers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
@@ -37,7 +38,33 @@
                       ResizeBehavior="PreviousAndNext"
                       ShowsPreview="True" />
 
-        <TabControl Grid.Column="2"></TabControl>
+        <StackPanel Grid.Column="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" FontWeight="Bold">Customer Editor</TextBlock>
+                    <Button x:Name="btnCreateNewCustomer" HorizontalAlignment="Right" Click="BtnCreateNewCustomer_OnClick">Register New Customer</Button>
+                </StackPanel>
+            
+            
+            <TextBlock FontWeight="Bold" Margin="5">First Name</TextBlock>
+            <TextBox Text="{Binding SelectedCustomer.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+                <TextBlock FontWeight="Bold" Margin="5">Last Name</TextBlock>
+            <TextBox Text="{Binding SelectedCustomer.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+                <TextBlock FontWeight="Bold" Margin="5">Email</TextBlock>
+            <TextBox Text="{Binding SelectedCustomer.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+                <TextBlock FontWeight="Bold" Margin="5">Is Member</TextBlock>
+            <TextBox Text="{Binding SelectedCustomer.IsMember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+                <TextBlock FontWeight="Bold" Margin="5">Membership Renewal Date</TextBlock>
+            <TextBox Text="{Binding SelectedCustomer.RenewalDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+            <Button x:Name="btnSaveCustomer" Click="BtnSaveCustomer_OnClick" Margin="0,15,0,0">Save Changes</Button>
+
+            
+
+        </StackPanel>
     </Grid>
     </Grid>
 </UserControl>

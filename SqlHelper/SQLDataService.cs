@@ -12,7 +12,6 @@ namespace SqlHelper
             _connectionString = connection;
         }
 
-        // Method to execute a SELECT query and return results
         public DataTable ExecuteSelectQuery(string query) {
             DataTable resultTable = new DataTable();
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -25,7 +24,6 @@ namespace SqlHelper
             return resultTable;
         }
 
-        // Method to execute an INSERT, UPDATE, or DELETE query
         public int ExecuteNonQuery(string query) {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -35,7 +33,6 @@ namespace SqlHelper
             }
         }
 
-        // Method to execute a query with parameters (e.g., for INSERT, UPDATE)
         public int ExecuteNonQueryWithParams(string query, List<SqlParameter> parameters) {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -46,7 +43,6 @@ namespace SqlHelper
             }
         }
 
-        // Method to get a single value (e.g., from a SELECT query with aggregate functions)
         public object ExecuteScalarQuery(string query) {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

@@ -29,7 +29,7 @@
 <TextBlock Text="Hours Worked: "/>
 <TextBlock Text="Is Currently Punched In:"/>
         </StackPanel>
-        <sf:SfScheduler Grid.Row="1"/>
+        <sf:SfScheduler x:Name="EmployeeSchedule" Grid.Row="1" Grid.Column="0" />
 
     </Grid>
 </UserControl>

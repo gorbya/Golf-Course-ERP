@@ -1,0 +1,19 @@
+﻿<Window x:Class="LinksLabGolfSystem.TimePickerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="Select Time" Height="150" Width="250">
+    <StackPanel Margin="10">
+        <syncfusion:SfTimePicker x:Name="TimePicker"
+                                 Width="150"
+                                 Height="30"
+                                 HorizontalAlignment="Center">
+
+        </syncfusion:SfTimePicker>
+        <Button Content="Submit"
+                Width="100"
+                HorizontalAlignment="Center"
+                Margin="10"
+                Click="Submit_Click"/>
+    </StackPanel>
+</Window>

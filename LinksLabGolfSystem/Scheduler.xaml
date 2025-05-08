@@ -22,19 +22,44 @@
         </StackPanel>
 
         <TextBlock Grid.Row="1" Text="South Course" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <syncfusion:SfScheduler EnableReminder="False" Grid.Row="1" Grid.Column="1" x:Name="southScheduler" 
-                                ViewType="TimelineDay" 
-                                />
+        <syncfusion:SfScheduler 
+            EnableReminder="False" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            x:Name="southScheduler" 
+            ViewType="TimelineDay" 
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Loaded="southScheduler_Loaded"
+            SizeChanged="scheduler_SizeChanged"
+            PreviewMouseLeftButtonDown="Scheduler_PreviewMouseLeftButtonDown"
+            Margin="0"
+            Padding="0">
+
+            <syncfusion:SfScheduler.TimelineViewSettings>
+                <syncfusion:TimelineViewSettings StartHour="7" EndHour="20" TimeIntervalSize="90"/>
+            </syncfusion:SfScheduler.TimelineViewSettings>
+        </syncfusion:SfScheduler>
+
 
         <TextBlock Grid.Row="2" Text="East Course" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <syncfusion:SfScheduler EnableReminder="False" Grid.Row="2" Grid.Column="1" x:Name="eastScheduler"
-                                ViewType="TimelineDay" 
-        />
+                                ViewType="TimelineDay" PreviewMouseLeftButtonDown="Scheduler_PreviewMouseLeftButtonDown">
+
+            <syncfusion:SfScheduler.TimelineViewSettings>
+                <syncfusion:TimelineViewSettings StartHour="7" EndHour="20" TimeIntervalSize="90"/>
+            </syncfusion:SfScheduler.TimelineViewSettings>
+        </syncfusion:SfScheduler>
+        
 
         <TextBlock Grid.Row="3" Text="West Course" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <syncfusion:SfScheduler EnableReminder="False" Grid.Row="3" Grid.Column="1" x:Name="westScheduler"
-                                ViewType="TimelineDay" 
-        />
+                                ViewType="TimelineDay" PreviewMouseLeftButtonDown="Scheduler_PreviewMouseLeftButtonDown"
+        >
+            <syncfusion:SfScheduler.TimelineViewSettings>
+                <syncfusion:TimelineViewSettings StartHour="7" EndHour="20" TimeIntervalSize="90"/>
+            </syncfusion:SfScheduler.TimelineViewSettings>
+        </syncfusion:SfScheduler>
 
         <StackPanel Margin="5" Grid.Column="2" Grid.RowSpan="3" Grid.Row="1">
 
@@ -63,7 +88,11 @@
                 Click="ButtonBase_OnClick"
                     >Create Tee Time</Button>
 
-</StackPanel>
+            <Button Margin="0,10,0,0"
+                    Click="EventButtonBase_OnClick"
+            >Create as Public Event</Button>
+
+        </StackPanel>
             
 
     </Grid>

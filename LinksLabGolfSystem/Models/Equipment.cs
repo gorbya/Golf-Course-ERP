@@ -8,6 +8,8 @@ namespace LinksLabGolfSystem.Models {
     public class Equipment {
         public int Uid { get; set; }
         public string Description { get; set; }
-        public TimeSpan MaintenanceFrequency { get; set; }
+        public string MaintenanceFrequency { get; set; }
+        public DateTime LastDateMaintained {get; set; }
+        public bool IsAvailable { get; set; }
     }
 }

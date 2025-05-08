@@ -17,7 +17,7 @@ namespace LinksLabGolfSystem {
         }
 
         // Products Button Click
-        private void ConcessionButton_Click(object sender, RoutedEventArgs e) {
+        private void CheckoutButton_Click(object sender, RoutedEventArgs e) {
             // Load Products UserControl into MainContent
             MainContent.Content = new ConcessionSaleUserControl();
         }

@@ -31,6 +31,8 @@ namespace LinksLabGolfSystem {
     /// </summary>
     public partial class Scheduler : UserControl {
 
+        public static event EventHandler<ScheduleAppointment> CheckoutRequested;
+
         private ObservableCollection<Customer> _Customers;
         
         public Customer SelectedCustomer { get; set; }
@@ -74,9 +76,9 @@ namespace LinksLabGolfSystem {
 
             Customers.Clear();
 
-            SQLDataService sdq = new SQLDataService(DataConstants.SQL.ConnectionString);
+            SQLDataService sdq = new SQLDataService(DataConstants.Keys.ConnectionString);
 
-            DataTable dt = sdq.ExecuteSelectQuery("Select * from Customers");
+            DataTable dt = sdq.ExecuteSelectQuery("Select * from Customers where IsDeleted = 0");
             ObservableCollection<Customer> customerList = new ObservableCollection<Customer>();
             foreach (DataRow row in dt.Rows) {
                 Customer customer = new Customer {
@@ -102,7 +104,7 @@ namespace LinksLabGolfSystem {
 
         private void LoadAppointments() {
 
-            SQLDataService sdq = new SQLDataService(DataConstants.SQL.ConnectionString);
+            SQLDataService sdq = new SQLDataService(DataConstants.Keys.ConnectionString);
 
             DataTable dt = sdq.ExecuteSelectQuery("Select * from CourseReservations where ReservationArea = 1");
             
@@ -150,7 +152,12 @@ namespace LinksLabGolfSystem {
 
         }
 
+
+
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
+
+            //Set background colors 
+
             ScheduleAppointment ap = new ScheduleAppointment();
 
             DateTime dt = (DateTime)DatePicker.Value;
@@ -180,7 +187,7 @@ namespace LinksLabGolfSystem {
             }
 
             cr.Reservation = ap;  
-            SQLDataService sq = new SQLDataService(DataConstants.SQL.ConnectionString);
+            SQLDataService sq = new SQLDataService(DataConstants.Keys.ConnectionString);
 
             List<SqlParameter> parameters = new List<SqlParameter>();
 
@@ -193,6 +200,108 @@ namespace LinksLabGolfSystem {
 
 
             sq.ExecuteNonQueryWithParams(query, parameters);
+
+            LoadAppointments();
+
+            
+        }
+
+        private void UpdateTimelineSlotWidth() {
+            if (southScheduler.TimelineViewSettings is TimelineViewSettings settings) {
+                double schedulerWidth = southScheduler.ActualWidth;
+
+                int startHour = 7;
+                int endHour = 20;
+                int totalSlots = endHour - startHour;
+
+                double padding = 0;
+                double availableWidth = schedulerWidth - padding;
+
+                if (availableWidth > 0 && totalSlots > 0){
+                    double tis = availableWidth / totalSlots;
+                    settings.TimeIntervalSize = tis;
+                    westScheduler.TimelineViewSettings.TimeIntervalSize = tis;
+                    eastScheduler.TimelineViewSettings.TimeIntervalSize = tis;
+                }
+            }
+        }
+
+        private void southScheduler_Loaded(object sender, RoutedEventArgs e){
+            UpdateTimelineSlotWidth();
+        }
+
+        private void scheduler_SizeChanged(object sender, SizeChangedEventArgs e) {
+            UpdateTimelineSlotWidth();
+        }
+
+        private void Scheduler_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+            if (e.OriginalSource is FrameworkElement element && element.DataContext is ScheduleAppointment appointment) {
+                var dialog = new AppointmentDialog(appointment);
+                dialog.ProceedToCheckout += (s, appt) =>
+                {
+                    // Raise event to notify parent (MainWindow)
+                    CheckoutRequested?.Invoke(this, appt);
+                };
+                dialog.ShowDialog();
+            }
+        }
+        private void EventButtonBase_OnClick(object sender, RoutedEventArgs e) {
+            var timePickerWindow = new TimePickerWindow();
+            if (timePickerWindow.ShowDialog() == true)
+            {
+                DateTime selectedTime = timePickerWindow.SelectedTime;
+
+                var t = 0;
+
+                ScheduleAppointment ap = new ScheduleAppointment();
+
+                DateTime dt = (DateTime)DatePicker.Value;
+
+                
+                TimeSpan time = ((DateTime)TimePicker.Value).TimeOfDay;
+
+                // Combine date and time
+
+                ap.StartTime = TimePicker.Value.Value;
+                ap.Subject = $"{SelectedCustomer.FullName} Scheduled Event";
+                ap.EndTime = selectedTime;
+                ap.Notes = $"Number of golfers: {txtNumOfGolfers.Text}";
+                ap.AppointmentBackground = Brushes.Green;
+
+                CourseReservation cr = new CourseReservation();
+
+                if (txtCourse.Text == "East") {
+                    cr.AreaReserved = 1;
+                }
+                else if (txtCourse.Text == "South") {
+                    cr.AreaReserved = 2;
+                }
+                else if (txtCourse.Text == "West") {
+                    cr.AreaReserved = 3;
+                }
+
+                cr.Reservation = ap;
+                SQLDataService sq = new SQLDataService(DataConstants.Keys.ConnectionString);
+
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                parameters.Add(new SqlParameter("@ReservationArea", cr.AreaReserved));
+                parameters.Add(new SqlParameter("@ScheduleAppointment", JsonConvert.SerializeObject(cr.Reservation)));
+                parameters.Add(new SqlParameter("@CustomerUid", SelectedCustomer.Uid));
+
+                string query = @"INSERT INTO CourseReservations (ReservationArea, ScheduleAppointment, CustomerUid) 
+                 VALUES (@ReservationArea, @ScheduleAppointment, @CustomerUid);";
+
+
+                sq.ExecuteNonQueryWithParams(query, parameters);
+
+                LoadAppointments();
+
+
+
+
+                // Use selectedTime as needed
+            }
         }
     }
 }

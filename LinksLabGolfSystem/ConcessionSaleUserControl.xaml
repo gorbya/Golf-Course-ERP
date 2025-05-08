@@ -6,7 +6,40 @@
              xmlns:local="clr-namespace:LinksLabGolfSystem"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            <TextBlock Text="TODO:Concession Sales"/>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Product List -->
+        <GroupBox Header="Available Products" Grid.Column="0" Margin="5">
+            <ListBox x:Name="ProductListBox" DisplayMemberPath="Name" />
+        </GroupBox>
+
+        <!-- Cart and Controls -->
+        <GroupBox Header="Shopping Cart" Grid.Column="1" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Cart List -->
+                <ListBox x:Name="CartListBox" Grid.Row="0" DisplayMemberPath="Display" />
+
+                <!-- Controls -->
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,10,0,0">
+                    <Button Content="Add" Click="AddToCart_Click" Margin="5"/>
+                    <Button Content="Remove" Click="RemoveFromCart_Click" Margin="5"/>
+                    <TextBox x:Name="QuantityTextBox" Width="40" Text="1" Margin="5"/>
+                    <Label Content="Qty" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <!-- Checkout -->
+                <Button Content="Checkout" Grid.Row="2" Margin="5" Padding="10" Click="Checkout_Click"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </UserControl>

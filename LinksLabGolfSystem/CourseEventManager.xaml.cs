@@ -5,27 +5,22 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace LinksLabGolfSystem {
     /// <summary>
     /// Interaction logic for CourseEventManager.xaml
     /// </summary>
-    public partial class CourseEventManager : UserControl, INotifyPropertyChanged
-    {
+    ///
+    ///
+    ///This code is now unused and obsolete
+    ///
+    /// In production this would be removed, but I'm keeping it here for my own reference in the future :)  
+    public partial class CourseEventManager : UserControl, INotifyPropertyChanged {
         private ObservableCollection<Customer> _Customers;
+
         public ObservableCollection<Customer> Customers {
             get {
                 if (_Customers == null) {
@@ -41,7 +36,7 @@ namespace LinksLabGolfSystem {
         }
 
         public CourseEventManager() {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NMaF5cXmBCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWX1fd3ZWRmleUUZ0WUs=");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(DataConstants.Keys.SyncFusionKey);
             InitializeComponent();
             DataContext = this;
             GetCustomers();
@@ -49,7 +44,7 @@ namespace LinksLabGolfSystem {
         }
 
         public void GetCustomers() {
-            SQLDataService sdq = new SQLDataService(DataConstants.SQL.ConnectionString);
+            SQLDataService sdq = new SQLDataService(DataConstants.Keys.ConnectionString);
 
             DataTable dt = sdq.ExecuteSelectQuery("Select * from Customers");
             ObservableCollection<Customer> customerList = new ObservableCollection<Customer>();

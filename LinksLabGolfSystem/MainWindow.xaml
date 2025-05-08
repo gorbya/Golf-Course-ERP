@@ -17,7 +17,7 @@
         <!-- Navigation Buttons (can be replaced with a menu) -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Background="LightGray" Width="5000" >
             <Button x:Name="HomeButton"  Content="Home" Click="HomeButton_Click" Visibility="Hidden"/>
-            <Button x:Name="ConcessionButton"  Content="Concession Sales" Click="ConcessionButton_Click" Visibility="Hidden"/>
+            <Button x:Name="CheckoutButton"  Content="Checkout Customer" Click="CheckoutButton_Click" Visibility="Hidden"/>
             <Button x:Name="ll"  Content="Orders" Click="OrdersButton_Click" Visibility="Hidden"/>
         </StackPanel>
 

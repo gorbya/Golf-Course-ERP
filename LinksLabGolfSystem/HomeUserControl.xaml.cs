@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LinksLabGolfSystem.Models;
 using LinksLabGolfSystem;
+using Syncfusion.UI.Xaml.Scheduler;
 
 namespace LinksLabGolfSystem {
     /// <summary>
@@ -29,10 +30,30 @@ namespace LinksLabGolfSystem {
             InitializeComponent();
         }
 
+        public HomeUserControl(int security) {
+            InitializeComponent();
+            if (security != 1) {
+                btnCustomerMgr.Visibility = Visibility.Hidden;
+                btnCustomerMgr.IsEnabled = false;
+                btnEmployeeMgr.Visibility = Visibility.Hidden;
+                btnEmployeeMgr.IsEnabled = false;
+            }
+
+
+            Scheduler.CheckoutRequested += OnCheckoutRequested;
+
+            //MainContent.Content = new ConcessionSaleUserControl();
+        }
+
         private void BtnCustomerMgr_OnClick(object sender, RoutedEventArgs e) {
             MainContent.Content = new CustomerManagerUserControl();
         }
 
+        private void OnCheckoutRequested(object sender, ScheduleAppointment appointment) {
+            MainContent.Content = null; // Removes it
+            int i = 1;
+            MainContent.Content = new ConcessionSaleUserControl(appointment);
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

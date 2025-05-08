@@ -51,5 +51,6 @@ namespace SqlHelper
                 return command.ExecuteScalar();
             }
         }
+
     }
 }

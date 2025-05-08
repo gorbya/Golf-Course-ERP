@@ -127,3 +127,9 @@ C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\Equ
 C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\EmployeeManager.baml
 C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\CourseEventManager.g.cs
 C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\CourseEventManager.baml
+C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\LinksLabGolfSystem_Content.g.cs
+C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\bin\Debug\Images\Lakeside-Links-Logo-color.png
+C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\AppointmentDialog.baml
+C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\AppointmentDialog.g.cs
+C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\TimePickerWindow.baml
+C:\Users\gorby\Documents\GitHub\Golf-Course-ERP\LinksLabGolfSystem\obj\Debug\TimePickerWindow.g.cs

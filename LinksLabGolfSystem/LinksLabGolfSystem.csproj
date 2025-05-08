@@ -89,22 +89,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AppointmentDialog.xaml.cs">
+      <DependentUpon>AppointmentDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CourseEventManager.xaml.cs">
       <DependentUpon>CourseEventManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomerManagerUserControl.xaml.cs">
       <DependentUpon>CustomerManagerUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataConstants\SQL.cs" />
+    <Compile Include="DataConstants\Keys.cs" />
     <Compile Include="EquipmentManager.xaml.cs">
       <DependentUpon>EquipmentManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="EmployeeManager.xaml.cs">
       <DependentUpon>EmployeeManager.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="Scheduler.xaml.cs">
       <DependentUpon>Scheduler.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TimePickerWindow.xaml.cs">
+      <DependentUpon>TimePickerWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AppointmentDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ConcessionSaleUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +169,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TimePickerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\CourseStaff\Admin.cs" />
@@ -206,5 +221,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\Lakeside-Links-Logo-color.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

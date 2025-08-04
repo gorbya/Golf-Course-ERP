@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="LinksLabGolfSystem.HomeUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Background="LightBlue">
+
+            <Button x:Name="btnOverview" Content="Overview" Background="LightSkyBlue" Margin="5" Click="BtnOverview_OnClick" BorderBrush="White"/>
+            <Button x:Name="btnEquipmentMgr" Content="Equipment Management" Background="LightSkyBlue" Margin="5" Click="BtnEquipmentMgr_OnClick" BorderBrush="White"/>
+            
+            <Button x:Name="btnCustomerMgr" Content="Customer Management" Background="LightSkyBlue" Margin="5" Click="BtnCustomerMgr_OnClick" BorderBrush="White"/>
+            <Button x:Name="btnEmployeeMgr" Content="Employee Management" Background="LightSkyBlue" Margin="5" Click="BtnEmployeeMgr_OnClick" BorderBrush="White"/>
+
+            <!--<Button x:Name="btnEventMgr" Content="Event Management" Background="LightSkyBlue" Margin="5" Click="BtnEventMgr_OnClick" BorderBrush="White"/>-->
+        </StackPanel>
+        <ContentControl x:Name="MainContent" Grid.Column="1"/>
+    </Grid>
+</UserControl>

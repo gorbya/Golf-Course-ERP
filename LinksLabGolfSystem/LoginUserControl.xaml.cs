@@ -59,14 +59,10 @@ namespace LinksLabGolfSystem {
                     mainWindow.CheckoutButton.IsEnabled = true;
                     mainWindow.CheckoutButton.Visibility = Visibility.Visible;
                 }
-
-                // Enable and show buttons in MainWindow
-                
                 mainWindow.HomeButton.IsEnabled = true;
 
                 mainWindow.HomeButton.Visibility = Visibility.Visible;
 
-                // Optionally switch to a different user control, like Home page
                 mainWindow.MainContent.Content = new HomeUserControl(loggedUser.AppliedSecurity);
             }
 

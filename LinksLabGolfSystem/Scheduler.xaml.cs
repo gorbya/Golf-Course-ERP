@@ -65,7 +65,7 @@ namespace LinksLabGolfSystem {
 
 
         public Scheduler() {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NMaF5cXmBCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWX1fd3ZWRmleUUZ0WUs=");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(DataConstants.Keys.SyncFusionKey);
             InitializeComponent();
             DataContext = this;
             LoadAppointments();
@@ -297,10 +297,6 @@ namespace LinksLabGolfSystem {
 
                 LoadAppointments();
 
-
-
-
-                // Use selectedTime as needed
             }
         }
     }

@@ -22,7 +22,6 @@ namespace LinksLabGolfSystem {
     public partial class AppointmentDialog : Window {
         private ScheduleAppointment _Appointment;
 
-        // Declare event
         public event EventHandler<ScheduleAppointment> ProceedToCheckout;
 
         public AppointmentDialog(ScheduleAppointment appointment) {

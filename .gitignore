@@ -10,6 +10,19 @@
 # Visual Studio 2015 cache/options directory
 .vs/
 
+
+# Ignore build outputs
+*.exe
+*.pdb
+*.cache
+*.suo
+*.baml
+
+# Ignore bin and obj folders
+bin/
+obj/
+
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

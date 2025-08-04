@@ -6,6 +6,45 @@
              xmlns:local="clr-namespace:LinksLabGolfSystem"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Report Title -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Report Title:" Margin="5" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Name="TitleTextBox"/>
+
+        <!-- Report Type -->
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Report Type:" Margin="5" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Margin="5" Name="ReportTypeComboBox">
+            <ComboBoxItem Content="Summary"/>
+            <ComboBoxItem Content="Detailed"/>
+            <ComboBoxItem Content="Custom"/>
+        </ComboBox>
+
+        <!-- Date Range -->
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Start Date:" Margin="5" VerticalAlignment="Center"/>
+        <DatePicker Grid.Row="2" Grid.Column="1" Margin="5" Name="StartDatePicker"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="End Date:" Margin="5" VerticalAlignment="Center"/>
+        <DatePicker Grid.Row="3" Grid.Column="1" Margin="5" Name="EndDatePicker"/>
+
+        <!-- Generate Button -->
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Padding="10"
+                Content="Generate Report" HorizontalAlignment="Center"/>
+
+        <!-- Results Grid -->
+        <DataGrid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="5"
+                  Name="ReportDataGrid" AutoGenerateColumns="True"/>
     </Grid>
 </UserControl>

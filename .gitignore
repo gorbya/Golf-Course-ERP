@@ -1,34 +1,83 @@
-# Build Folders (Visual Studio default)
-bin/
-obj/
+# Build results
+[Bb]in/
+[Oo]bj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.mdb
 
-# User-specific files
-*.rsuser
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+*.psmdcp
+project.lock.json
+project.assets.json
+
+# VS-specific
+.vs/
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
 
-# Auto-generated files
-*.cache
-*.pdb
-*.log
-*.vspscc
-*.vssscc
-*.dbmdl
-*.bak
-*.tmp
+# WPF-specific
 *.baml
 
-# Build output
-*.dll
-*.exe
+# Logs and temp
+*.log
+*.tmp
+*.bak
 
-# VS folders
-.vs/
+# Signing & Auth
+*.p7s
+*.pfx
 
-# Others
-_ReSharper*/
-*.ncrunch*
-*.localhistory/
+# Image, metadata, test result noise
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.tiff
+*.xml
+*.md
+*.txt
 TestResults/
+*.vsp
+*.vsmdi
+
+# JetBrains / Rider / Resharper
+.idea/
+_ReSharper*/
+*.DotSettings.user
+
+# Rider / Coverage
+coverage/
+coverage.*.json
+
+# Common build tools
+artifacts/
+.ncrunch*
+*.ncrunch*
+*.build.csdef
+
+# System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Other
+*.dbmdl
+*.sdf
+*.sql
+*.csv
+*.bak
+*.orig
+*.swp
+*.swo
+*.tgz
+*.gz
+*.zip
+*.tar

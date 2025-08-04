@@ -12,6 +12,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -41,7 +43,8 @@
 
         <!-- Generate Button -->
         <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Padding="10"
-                Content="Generate Report" HorizontalAlignment="Center"/>
+                Content="Generate Report" HorizontalAlignment="Center" Click="GenerateReport_Click"/>
+
 
         <!-- Results Grid -->
         <DataGrid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="5"

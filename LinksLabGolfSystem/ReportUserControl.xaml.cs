@@ -27,5 +27,32 @@ namespace LinksLabGolfSystem {
         public ReportUserControl() {
             InitializeComponent();
         }
+
+        private void GenerateReport_Click(object sender, RoutedEventArgs e) {
+            string title = TitleTextBox.Text;
+            string reportType = ((ComboBoxItem)ReportTypeComboBox.SelectedItem)?.Content.ToString();
+            DateTime? startDate = StartDatePicker.SelectedDate;
+            DateTime? endDate = EndDatePicker.SelectedDate;
+
+            if (string.IsNullOrWhiteSpace(title) || reportType == null || !startDate.HasValue || !endDate.HasValue) {
+                MessageBox.Show("Please complete all fields.", "Input Required", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var reportData = new List<ReportRow>
+            {
+                new ReportRow { Id = 1, Name = "Item A", Value = 123.45 },
+                new ReportRow { Id = 2, Name = "Item B", Value = 678.90 },
+                new ReportRow { Id = 3, Name = "Item C", Value = 234.56 }
+            };
+
+            ReportDataGrid.ItemsSource = reportData;
+        }
+    }
+
+    public class ReportRow {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double Value { get; set; }
     }
 }

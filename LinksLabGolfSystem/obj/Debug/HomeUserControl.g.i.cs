@@ -9,6 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using LinksLabGolfSystem;
 using System;
 using System.Diagnostics;
 using System.Windows;

@@ -35,24 +35,50 @@ namespace LinksLabGolfSystem {
             DateTime? endDate = EndDatePicker.SelectedDate;
 
             if (string.IsNullOrWhiteSpace(title) || reportType == null || !startDate.HasValue || !endDate.HasValue) {
-                MessageBox.Show("Please complete all fields.", "Input Required", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please complete all fields.", "Input Required", MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
                 return;
             }
 
-            var reportData = new List<ReportRow>
-            {
-                new ReportRow { Id = 1, Name = "Item A", Value = 123.45 },
-                new ReportRow { Id = 2, Name = "Item B", Value = 678.90 },
-                new ReportRow { Id = 3, Name = "Item C", Value = 234.56 }
-            };
+            var reportData = new List<ReportRow>();
+
+            foreach (var loadProduct in LoadProducts()) {
+                ReportRow rr = new ReportRow() {
+                    Id = loadProduct.Uid,
+                    Name = loadProduct.Name,
+                    Value = loadProduct.Price
+                };
+
+                reportData.Add(rr);
+            }
 
             ReportDataGrid.ItemsSource = reportData;
         }
-    }
 
-    public class ReportRow {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public double Value { get; set; }
+
+        public class ReportRow {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public double Value { get; set; }
+        }
+
+        private ObservableCollection<Concession> LoadProducts() {
+            //Placeholder 
+
+            SQLDataService sdq = new SQLDataService(DataConstants.Keys.ConnectionString);
+
+            DataTable dt = sdq.ExecuteSelectQuery("Select * from Concessions");
+            ObservableCollection<Concession> concessionList = new ObservableCollection<Concession>();
+            foreach (DataRow row in dt.Rows) {
+                Concession cons = new Concession {
+                    Uid = Convert.ToInt32(row["Uid"]),
+                    Name = row["Name"].ToString(),
+                    Price = Convert.ToDouble(row["Price"])
+                };
+                concessionList.Add(cons);
+            }
+
+            return concessionList;
+        }
     }
 }

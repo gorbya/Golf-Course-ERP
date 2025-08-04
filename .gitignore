@@ -6,3 +6,13 @@ LinksLabGolfSystem/.vs/LinksLabGolfSystem/v17/.suo
 *.cache
 *.vsidx
 *.lref
+# Ignore build outputs
+*.exe
+*.pdb
+*.cache
+*.suo
+*.baml
+
+# Ignore bin and obj folders
+bin/
+obj/

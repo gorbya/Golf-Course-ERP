@@ -27,5 +27,11 @@ namespace LinksLabGolfSystem {
             // Load Orders UserControl into MainContent
             //MainContent.Content = new OrdersUserControl();
         }
+        
+        // Show Report Click
+        private void ReportButton_Click(object sender, RoutedEventArgs e) {
+            // Load Orders UserControl into MainContent
+            //MainContent.Content = new OrdersUserControl();
+        }
     }
 }

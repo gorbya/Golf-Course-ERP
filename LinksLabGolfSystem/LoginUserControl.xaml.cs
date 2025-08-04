@@ -57,7 +57,9 @@ namespace LinksLabGolfSystem {
 
                 if (loggedUser.AppliedSecurity == 1) {
                     mainWindow.CheckoutButton.IsEnabled = true;
+                    mainWindow.ReportButton.IsEnabled = true;
                     mainWindow.CheckoutButton.Visibility = Visibility.Visible;
+                    mainWindow.ReportButton.Visibility = Visibility.Visible;
                 }
                 mainWindow.HomeButton.IsEnabled = true;
 

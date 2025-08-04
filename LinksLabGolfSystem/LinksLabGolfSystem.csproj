@@ -92,6 +92,9 @@
     <Compile Include="AppointmentDialog.xaml.cs">
       <DependentUpon>AppointmentDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ReportUserControl.xaml.cs">
+      <DependentUpon>ReportUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CourseEventManager.xaml.cs">
       <DependentUpon>CourseEventManager.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
     <Page Include="AppointmentDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ConcessionSaleUserControl.xaml">
       <SubType>Designer</SubType>
